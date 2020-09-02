@@ -1,0 +1,40 @@
+#+TITLE: Docker build
+#+TAGS: docker, cli, dockerfile
+#+DESCRIPTION: Build an image from a Dockerfile
+#+PROPERTY: header-args:sh :session *shell docker-build sh* :results silent raw
+#+PROPERTY: header-args:python :session *shell docker-build python* :results silent raw
+#+OPTIONS: ^:nil
+
+#+begin_quote
+Build an image from a Dockerfile.
+#+end_quote
+
+** System environment
+
+- CentOS 8.1
+
+- Docker 19.03
+
+** Parameters
+
+#+BEGIN_SRC sh
+CONTEXT="."
+TAG="test"
+#+END_SRC
+
+** Dockerfile
+
+#+BEGIN_SRC Dockerfile :tangle docker/Dockerfile
+FROM debian
+RUN echo "Simple build!"
+#+END_SRC
+
+** Build with path and tag
+
+#+BEGIN_SRC sh
+docker build -t $TAG $CONTEXT
+#+END_SRC
+
+** References
+
+1. https://docs.docker.com/engine/reference/commandline/build/
